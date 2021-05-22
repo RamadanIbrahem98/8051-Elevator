@@ -1,5 +1,5 @@
 # write the files without extension
-FILES := app Common
+FILES := app
 mainFile := app
 SiLabsPath = C:/SiLabs
 
@@ -16,10 +16,13 @@ ld 		:= $(SiLabsPath)/MCU/IDEfiles/C51/BIN/bl51.exe
 default: link
 	$(OH) $(mainFile).ABS
 	make clean
-	
+
+clear:
+	rm -f *.OBJ *.LST *.M51 *.ABS *.hex
+
 link:
 	$(foreach var,$(SRCS), $(CC) $(var) DB OE BR;)
 	$(ld) $(OBJS) TO $(mainFile).ABS
 
 clean:
-	rm *.hex
+	rm -f *.OBJ *.LST *.M51 *.ABS
