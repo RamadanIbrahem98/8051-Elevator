@@ -1,5 +1,5 @@
 # write the files without extension
-FILES := app
+FILES := app Common
 mainFile := app
 SiLabsPath = C:/SiLabs
 
