@@ -50,13 +50,13 @@ void LED_SetState(tLED led, tLED_State state)
     switch (led)
     {
         case IS_MOVING:
-            GPIO_WritePortPin(MOVING_LED_PORT_CR, MOVING_LED_PIN, state);
+            GPIO_WritePortPin(MOVING_LED_PORT_DR, MOVING_LED_PIN, state);
             break;
         case IS_DOOR_OPENED:
-            GPIO_WritePortPin(DOOR_OPEN_LED_PORT_CR, DOOR_OPEN_LED_PIN, state);
+            GPIO_WritePortPin(DOOR_OPEN_LED_PORT_DR, DOOR_OPEN_LED_PIN, state);
             break;
         case TOO_MANY_PEOPLE:
-            GPIO_WritePortPin(ALARM_LED_PORT_CR, ALARM_LED_PIN, state);
+            GPIO_WritePortPin(ALARM_LED_PORT_DR, ALARM_LED_PIN, state);
             break;
         default:
             /* Should not come here */
@@ -74,13 +74,13 @@ tLED_State LED_GetState(tLED led)
     switch (led)
     {
         case IS_MOVING:
-            ret = GPIO_ReadPortPin(MOVING_LED_PORT_CR, MOVING_LED_PIN);
+            ret = GPIO_ReadPortPin(MOVING_LED_PORT_DR, MOVING_LED_PIN);
             break;
         case IS_DOOR_OPENED:
-            ret = GPIO_ReadPortPin(DOOR_OPEN_LED_PORT_CR, DOOR_OPEN_LED_PIN);
+            ret = GPIO_ReadPortPin(DOOR_OPEN_LED_PORT_DR, DOOR_OPEN_LED_PIN);
             break;
         case TOO_MANY_PEOPLE:
-            ret = GPIO_ReadPortPin(ALARM_LED_PORT_CR, ALARM_LED_PIN);
+            ret = GPIO_ReadPortPin(ALARM_LED_PORT_DR, ALARM_LED_PIN);
             break;
         default:
             /* Should not come here */

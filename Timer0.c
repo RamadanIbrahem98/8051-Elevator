@@ -13,23 +13,6 @@ void TIMER0_Init()
     TIMER0_SELECT_Event_Type(EVENT_FALLING_EDGE);
 }
 
-// void TIMER0_Update() interrupt 1
-// {
-//     static unsigned char count = 0;
-
-//     TIMER0_CLEAR_FLAG();
-
-//     // LED_Toggle(LED_0);
-    
-//     count++;
-//     if (count % 100 == 0)
-//     {
-//         LED_Toggle(UP_BTN_PIN);
-//         count = 0;
-//     }
-    
-// }
-
 void TIMER0_Start()
 {
     TIMER0_SET_STATE(1);
