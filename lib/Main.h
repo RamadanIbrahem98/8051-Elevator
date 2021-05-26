@@ -48,6 +48,31 @@
 #define GPIO_ReadPortPin(PORT, PIN)                 (((PORT) & (1 << PIN)) >> (PIN))
 /* End of code filling */
 
+
+/* Interrupts */
+#define UC_SET_ALL_Int_STATE(x) (EA = x)
+
+/* External Interrupt 0*/
+// #define EX0_SET_INT_STATE(x)
+// #define EX0_SET_STATE(x)
+
+/* Timer 0*/
+#define TIMER0_SET_INT_STATE(x) (ET0 = x)
+#define TIMER0_SET_STATE(x) (TR0 = x)
+#define TIMER0_SET_MODE(x) 	GPIO_WritePortPin(TMOD, 0, (x&0x1));\
+                            GPIO_WritePortPin(TMOD, 1, (x&0x2)>>1);
+#define TIMER0_SELECT_CLOCK_SOURCE(y)	GPIO_WritePortPin(CKCON, 3, y);
+#define TIMER0_CHECK_FLAG() (TF0)
+#define TIMER0_CLEAR_FLAG() (TF0=0)
+#define TIMER0_SELECT_Event_Type(x) (IT0=x)
+// #define TIMER0_START()  ()
+typedef enum 
+{
+    EVENT_LOW_LEVEL,
+    EVENT_FALLING_EDGE
+}tTimerEventType;
+/* End of Inturrept */
+
 /* Standard data types */
 typedef unsigned int tWord;
 
