@@ -3,7 +3,7 @@
 
 
 void TIMER0_Init(void);
-void TIMER0_Update(void);
+// void TIMER0_Update(void);
 void TIMER0_Start(void);
 
 

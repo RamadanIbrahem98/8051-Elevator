@@ -1,6 +1,7 @@
 #include "lib/Timer0.h"
 #include "lib/Main.h"
 #include "lib/Led.h"
+#include "lib/Port.h"
  
 void TIMER0_Init()
 {
@@ -12,22 +13,22 @@ void TIMER0_Init()
     TIMER0_SELECT_Event_Type(EVENT_FALLING_EDGE);
 }
 
-void TIMER0_Update() interrupt 1
-{
-    static unsigned char count = 0;
+// void TIMER0_Update() interrupt 1
+// {
+//     static unsigned char count = 0;
 
-    TIMER0_CLEAR_FLAG();
+//     TIMER0_CLEAR_FLAG();
 
-    // LED_Toggle(LED_0);
+//     // LED_Toggle(LED_0);
     
-    count++;
-    if (count % 100 == 0)
-    {
-        LED_Toggle(LED_0);
-        count = 0;
-    }
+//     count++;
+//     if (count % 100 == 0)
+//     {
+//         LED_Toggle(UP_BTN_PIN);
+//         count = 0;
+//     }
     
-}
+// }
 
 void TIMER0_Start()
 {
