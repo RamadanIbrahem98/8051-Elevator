@@ -3,7 +3,7 @@
 
 
 #define NUMBER_OF_SAMPLE    (2)
-#define NUMBER_OF_PUSH_BUTTONS  (4)
+#define NUMBER_OF_PUSH_BUTTONS  (10)
 
 #define PB_PRESSED_VOLTAGE  (0)
 #define PB_RELEASED_VOLTAGE  (1)
@@ -46,6 +46,10 @@ void PB_Init(tPB pb, tPB_State initial_state)
             break;
         case FORCE:
             GPIO_InitPortPin(FORCE_OPEN_BTN_PORT_CR, FORCE_OPEN_BTN_PIN, GPIO_IN);
+        case INCREASE:
+            GPIO_InitPortPin(INCREASE_BTN_PORT_CR, INCREASE_BTN_PIN, GPIO_IN);
+        case DECREASE:
+            GPIO_InitPortPin(DECREASE_BTN_PORT_CR, DECREASE_BTN_PIN, GPIO_IN);
             break;
         default:
             /* Should not be here */
@@ -104,6 +108,12 @@ void PB_Update(void)
             break;
         case FORCE:
             pb_info[current_button].samples[1] = GPIO_ReadPortPin(FORCE_OPEN_BTN_PORT_DR, FORCE_OPEN_BTN_PIN);
+            break;
+        case INCREASE:
+            pb_info[current_button].samples[1] = GPIO_ReadPortPin(INCREASE_BTN_PORT_DR, INCREASE_BTN_PIN);
+            break;
+        case DECREASE:
+            pb_info[current_button].samples[1] = GPIO_ReadPortPin(DECREASE_BTN_PORT_DR, DECREASE_BTN_PIN);
             break;
         default:
             /* Should not be here */

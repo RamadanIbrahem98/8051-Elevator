@@ -10,7 +10,9 @@ typedef enum
     F4_BTN,
     UP,
     DOWN,
-    FORCE
+    FORCE,
+    INCREASE,
+    DECREASE
 }tPB;
 
 typedef enum
